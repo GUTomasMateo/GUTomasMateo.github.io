@@ -25,55 +25,54 @@
 
         /* Contenedor principal de la carta */
         .carta-container {
-            background-color: rgba(255, 255, 255, 0.95); /* Un poco más opaco */
+            background-color: rgba(255, 255, 255, 0.95);
             max-width: 650px;
             width: 90%;
-            /* Espacio interno sustancial para evitar los adornos */
-            padding: 90px 70px; 
+            /* AUMENTAMOS EL PADDING SUPERIOR E INFERIOR a 120px */
+            padding: 120px 70px; 
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             backdrop-filter: blur(5px);
-            position: relative; /* Necesario para posicionar las esquinas */
-            overflow: hidden; /* Evita que las flores se salgan del borde redondeado */
+            position: relative;
+            overflow: hidden;
         }
 
         /* --- ESTILOS GENERALES PARA LAS 4 ESQUINAS --- */
         .corner {
             position: absolute;
-            width: 140px; /* Tamaño de los adornos en escritorio */
+            width: 140px;
             height: 140px;
-            /* AQUÍ ESTÁ EL ENLACE A TU IMAGEN */
             background-image: url('image_0.png'); 
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 1; /* Aumentamos la opacidad */
-            z-index: 1; /* Z-index bajo para las flores */
+            opacity: 1;
+            z-index: 1;
         }
 
         /* --- POSICIONAMIENTO Y ESPEJO (TRANSFORM) DE ESQUINAS --- */
 
-        /* Arriba Izquierda: Invertida verticalmente */
+        /* Arriba Izquierda */
         .corner.tl {
             top: 10px;
             left: 10px;
             transform: scaleY(-1); 
         }
 
-        /* Arriba Derecha: Invertida vertical y horizontalmente */
+        /* Arriba Derecha */
         .corner.tr {
             top: 10px;
             right: 10px;
             transform: scaleX(-1) scaleY(-1);
         }
 
-        /* Abajo Izquierda: Imagen Original (fit perfecto) */
+        /* Abajo Izquierda */
         .corner.bl {
             bottom: 10px;
             left: 10px;
         }
 
-        /* Abajo Derecha: Invertida horizontalmente */
+        /* Abajo Derecha */
         .corner.br {
             bottom: 10px;
             right: 10px;
@@ -83,16 +82,14 @@
         /* --- ESTILOS PARA EL TEXTO --- */
         .mensaje-especial {
             font-family: 'Dancing Script', cursive;
-            color: #4a3b3b; /* Un tono oscuro y cálido */
-            font-size: 2.2rem; /* Tamaño grande para buena lectura */
+            color: #4a3b3b;
+            font-size: 2.2rem;
             line-height: 1.6;
             margin: 0;
-            /* CORRECCIÓN DE LEGIBILIDAD: Z-INDEX ALTO */
             position: relative;
             z-index: 10; 
         }
 
-        /* Estilo específico para la firma */
         .firma {
             display: block;
             margin-top: 30px;
@@ -103,18 +100,17 @@
         /* --- AJUSTES RESPONSIVOS PARA CELULARES --- */
         @media (max-width: 600px) {
             .carta-container {
-                padding: 70px 30px; /* Reducimos el padding en móvil */
+                /* AUMENTAMOS TAMBIÉN EL PADDING SUPERIOR E INFERIOR EN MÓVIL a 90px */
+                padding: 90px 30px; 
             }
             
-            /* Achicamos las flores en el celular significativamente */
             .corner {
                 width: 80px; 
                 height: 80px;
-                top: 5px; /* Ajustamos la posición para móvil */
+                top: 5px;
                 left: 5px;
             }
             
-            /* Ajuste específico para las posiciones de las esquinas en móvil */
             .corner.tr { right: 5px; left: auto; top: 5px;}
             .corner.bl { bottom: 5px; left: 5px; top: auto;}
             .corner.br { bottom: 5px; right: 5px; top: auto; left: auto;}
