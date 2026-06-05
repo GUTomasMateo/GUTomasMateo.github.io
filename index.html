@@ -25,57 +25,74 @@
 
         /* Contenedor principal de la carta */
         .carta-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Un poco más opaco para que resalten las flores */
+            background-color: rgba(255, 255, 255, 0.95); /* Un poco más opaco */
             max-width: 650px;
             width: 90%;
-            /* Aumentamos el padding (espacio interno) para que el texto no toque las flores */
-            padding: 80px 60px; 
+            /* Espacio interno sustancial para evitar los adornos */
+            padding: 90px 70px; 
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             backdrop-filter: blur(5px);
-            position: relative; /* Necesario para posicionar las flores */
+            position: relative; /* Necesario para posicionar las esquinas */
             overflow: hidden; /* Evita que las flores se salgan del borde redondeado */
         }
 
-        /* --- ADORNOS FLORALES (Esquinas) --- */
-        .carta-container::before,
-        .carta-container::after {
-            content: "";
+        /* --- ESTILOS GENERALES PARA LAS 4 ESQUINAS --- */
+        .corner {
             position: absolute;
-            width: 140px; /* Tamaño del adorno en pantallas grandes */
+            width: 140px; /* Tamaño de los adornos en escritorio */
             height: 140px;
-            /* AQUÍ ESTÁ EL ENLACE A TU IMAGEN. Debe llamarse adorno.png y estar en la misma carpeta */
-            background-image: url('adorno.png'); 
+            /* AQUÍ ESTÁ EL ENLACE A TU IMAGEN */
+            background-image: url('image_0.png'); 
             background-size: contain;
             background-repeat: no-repeat;
-            opacity: 0.9;
+            opacity: 1; /* Aumentamos la opacidad */
+            z-index: 1; /* Z-index bajo para las flores */
         }
 
-        /* Esquina superior izquierda */
-        .carta-container::before {
+        /* --- POSICIONAMIENTO Y ESPEJO (TRANSFORM) DE ESQUINAS --- */
+
+        /* Arriba Izquierda: Invertida verticalmente */
+        .corner.tl {
             top: 10px;
+            left: 10px;
+            transform: scaleY(-1); 
+        }
+
+        /* Arriba Derecha: Invertida vertical y horizontalmente */
+        .corner.tr {
+            top: 10px;
+            right: 10px;
+            transform: scaleX(-1) scaleY(-1);
+        }
+
+        /* Abajo Izquierda: Imagen Original (fit perfecto) */
+        .corner.bl {
+            bottom: 10px;
             left: 10px;
         }
 
-        /* Esquina inferior derecha (invertida) */
-        .carta-container::after {
+        /* Abajo Derecha: Invertida horizontalmente */
+        .corner.br {
             bottom: 10px;
             right: 10px;
-            transform: rotate(180deg); /* Gira la imagen para que haga de marco */
+            transform: scaleX(-1);
         }
 
-        /* Estilos para el texto cursivo */
+        /* --- ESTILOS PARA EL TEXTO --- */
         .mensaje-especial {
             font-family: 'Dancing Script', cursive;
-            color: #4a3b3b;
-            font-size: 2.2rem;
+            color: #4a3b3b; /* Un tono oscuro y cálido */
+            font-size: 2.2rem; /* Tamaño grande para buena lectura */
             line-height: 1.6;
             margin: 0;
+            /* CORRECCIÓN DE LEGIBILIDAD: Z-INDEX ALTO */
             position: relative;
-            z-index: 2; /* Asegura que el texto esté siempre por encima de las flores */
+            z-index: 10; 
         }
 
+        /* Estilo específico para la firma */
         .firma {
             display: block;
             margin-top: 30px;
@@ -83,18 +100,24 @@
             font-size: 2.5rem;
         }
 
-        /* Ajustes responsivos para celulares (pantallas pequeñas) */
+        /* --- AJUSTES RESPONSIVOS PARA CELULARES --- */
         @media (max-width: 600px) {
             .carta-container {
-                padding: 60px 25px; /* Ajustamos los márgenes para celular */
+                padding: 70px 30px; /* Reducimos el padding en móvil */
             }
             
-            /* Achicamos las flores en el celular para que no ocupen toda la pantalla */
-            .carta-container::before,
-            .carta-container::after {
+            /* Achicamos las flores en el celular significativamente */
+            .corner {
                 width: 80px; 
                 height: 80px;
+                top: 5px; /* Ajustamos la posición para móvil */
+                left: 5px;
             }
+            
+            /* Ajuste específico para las posiciones de las esquinas en móvil */
+            .corner.tr { right: 5px; left: auto; top: 5px;}
+            .corner.bl { bottom: 5px; left: 5px; top: auto;}
+            .corner.br { bottom: 5px; right: 5px; top: auto; left: auto;}
 
             .mensaje-especial {
                 font-size: 1.7rem;
@@ -108,6 +131,11 @@
 <body>
 
     <div class="carta-container">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+        
         <p class="mensaje-especial">
             Hoy estoy acá como una persona que pudo ver un lado tuyo encantador y muy cálido, que a veces me sorprendía con cada detalle y me mostró cómo todavía hay gente muy buena y cariñosa que no había conocido. Estoy acá para desearte un muy feliz cumpleaños en este día tan especial para vos.<br><br>
             
