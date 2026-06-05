@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para una persona especial</title>
+    
+    <!-- Importamos la fuente cursiva desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos generales y fondo */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Degradado suave y romántico */
+            background: linear-gradient(135deg, #fdfbfb 0%, #fad0c4 100%);
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor principal de la carta */
+        .carta-container {
+            background-color: rgba(255, 255, 255, 0.85); /* Blanco semi-transparente */
+            max-width: 650px;
+            width: 90%;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Estilos para el texto cursivo */
+        .mensaje-especial {
+            font-family: 'Dancing Script', cursive;
+            color: #4a3b3b; /* Un tono oscuro y cálido, más suave que el negro puro */
+            font-size: 2.2rem; /* Tamaño grande para buena lectura */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Estilo específico para la firma */
+        .firma {
+            display: block;
+            margin-top: 30px;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+
+        /* Ajustes responsivos para celulares (pantallas pequeñas) */
+        @media (max-width: 600px) {
+            .carta-container {
+                padding: 30px 20px;
+            }
+            .mensaje-especial {
+                font-size: 1.8rem;
+            }
+            .firma {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carta-container">
+        <p class="mensaje-especial">
+            Hoy estoy acá como una persona que pudo ver un lado tuyo encantador y muy cálido, que a veces me sorprendía con cada detalle y me mostró cómo todavía hay gente muy buena y cariñosa que no había conocido. Estoy acá para desearte un muy feliz cumpleaños en este día tan especial para vos.<br><br>
+            
+            Me encantaría poder decírtelo desde otra posición de la que por ahora tengo con vos. Siendo sincero, agradezco todos esos momentos difíciles en los cuales me acompañaste cuando necesitaba a alguien con quien hablar. Cuando me sentía solo y triste, fuiste esa persona que me iluminó.<br><br>
+            
+            Por eso, espero que este sea un día especial y que puedas disfrutarlo con quienes son para vos tus personas importantes, más allá de la distancia.<br><br>
+            
+            Te quiero muchísimo.<br>
+            <span class="firma">De parte de Mateo.</span>
+        </p>
+    </div>
+
+</body>
+</html>
